@@ -1,6 +1,7 @@
 package com.example.whatsinit.Commands;
 
 import com.example.whatsinit.CommandController;
+import com.example.whatsinit.Contexts;
 import org.springframework.shell.command.annotation.Command;
 import org.springframework.shell.command.annotation.Option;
 
@@ -12,7 +13,6 @@ import java.awt.datatransfer.StringSelection;
 public class WhatsInside {
 
     private final CommandController commandController;
-
     private void copyToClipboard(String arg){
 
         System.setProperty("java.awt.headless","false");
@@ -26,21 +26,26 @@ public class WhatsInside {
         this.commandController = commandController;
     }
 
-
     @Command(command = "web",description = "Web Dependencies")
     public String webDependecies(){
-        return commandController.getCommand(111);
+        return commandController.getByContext();
     }
 
     @Command(command = "security",description = "Security Dependencies")
-    public String secDependecies(){
-        return commandController.getCommand(222);
+    public String securityDependecies(){
+        return commandController.getByContext(Contexts.security.name());
     }
 
     @Command(command ="data",description = "SQL-Data Dependencies")
     public String sqlDependecies(){
-        return commandController.getByContext("data");
+        return commandController.getByContext(Contexts.data.name());
     }
+
+    @Command(command = "template",description = "Template Dependencies")
+    public String templateDependecies(){
+        return commandController.getByContext(Contexts.template.name());
+    }
+
 
     @Command(command = "jersey",description = "get jersey")
     public String getJersey(){
