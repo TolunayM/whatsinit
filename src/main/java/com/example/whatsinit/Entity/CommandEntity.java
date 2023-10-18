@@ -18,5 +18,6 @@ public class CommandEntity {
 
     @Id
     Integer id;
+    String context;
     String text;
 }

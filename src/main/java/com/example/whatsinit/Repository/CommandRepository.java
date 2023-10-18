@@ -15,4 +15,8 @@ public interface CommandRepository extends JpaRepository<CommandEntity,Integer> 
     @Query("SELECT text FROM CommandEntity " +
     "WHERE id = :id")
     String justText(@Param("id")Integer id);
+
+    @Query("SELECT text FROM CommandEntity "+
+    "WHERE context LIKE :ctx")
+    String findByContext(@Param("ctx") String ctx);
 }

@@ -16,4 +16,8 @@ public class CommandController {
         return commandService.getbyID(id);
     }
 
+    public String getByContext(String ctx){
+        return commandService.getbyContext(ctx);
+    }
+
 }

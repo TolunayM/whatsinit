@@ -20,4 +20,8 @@ public class CommandService {
         return commandRepository.justText(id);
     }
 
+    public String getbyContext(String ctx){
+        return commandRepository.findByContext(ctx);
+    }
+
 }
