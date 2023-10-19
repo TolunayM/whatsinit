@@ -23,6 +23,7 @@ public class WhatsInside {
         StringSelection stringSelection = new StringSelection(clip);
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
         clipboard.setContents(stringSelection,null);
+
     }
 
     public WhatsInside(CommandController commandController){
@@ -49,6 +50,77 @@ public class WhatsInside {
         return commandController.getByContext(Contexts.template.name());
     }
 
+    @Command(command = "nosql",description = "NoSQL Dependencies")
+    public String nosqlDependencies(){
+        return commandController.getByContext(Contexts.nosql.name());
+    }
+
+    @Command(command = "devtools",description = "Dev Tools Dependencies")
+    public String devDependencies(){
+        return commandController.getByContext(Contexts.dev_tools.name());
+    }
+
+    @Command(command = "message",description = "Messaging Dependencies")
+    public String messageDependencies(){
+        return commandController.getByContext(Contexts.messaging.name());
+    }
+
+    @Command(command = "io",description = "IO Dependencies")
+    public String ioDependencies(){
+        return commandController.getByContext(Contexts.io.name());
+    }
+
+    @Command(command = "ops",description = "DevOps Dependencies")
+    public String opsDependencies(){
+        return commandController.getByContext(Contexts.ops.name());
+    }
+
+    @Command(command = "observability",description = "Observability Dependencies")
+    public String obsDependencies(){
+        return commandController.getByContext(Contexts.observability.name());
+    }
+
+    @Command(command = "test",description = "Testing Dependencies")
+    public String testDependencies(){
+        return commandController.getByContext(Contexts.testing.name());
+    }
+
+    @Command(command = "cloud",description = "Cloud Dependencies")
+    public String cloudDependencies(){
+        return commandController.getByContext(Contexts.cloud.name());
+    }
+
+    @Command(command = "cloudconfig",description = "CloudConfig Dependencies")
+    public String cloudconfigDependencies(){
+        return commandController.getByContext(Contexts.cloud_config.name());
+    }
+
+    @Command(command = "clouddiscovery",description = "Cloud Discovery Dependencies")
+    public String cloudDiscDependencies(){
+        return commandController.getByContext(Contexts.cloud_discovery.name());
+    }
+    @Command(command = "cloudrouting",description = "Cloud Routing Dependencies")
+    public String croutingDependencies(){
+        return commandController.getByContext(Contexts.cloud_routing.name());
+    }
+    @Command(command = "cloudcbreaker",description = "Cloud Circuit Breaker Dependencies")
+    public String clcbrekerDependencies(){
+        return commandController.getByContext(Contexts.cloud_circuit_breaker.name());
+    }
+
+    @Command(command = "vmware",description = "VmWare Tanzu Dependencies")
+    public String vmtanzuDependencies(){
+        return commandController.getByContext(Contexts.vmware_tanzu.name());
+    }
+
+    @Command(command = "azure",description = "Azure Dependencies")
+    public String azureDependencies(){
+        return commandController.getByContext(Contexts.azure.name());
+    }
+    @Command(command = "gcloud",description = "Google Cloud Dependencies")
+    public String gcloudDependencies(){
+        return commandController.getByContext(Contexts.google_cloud.name());
+    }
 
     @Command(command = "jersey",description = "get jersey")
     public String getJersey(){
