@@ -1,2 +1,2 @@
 # whatsinit
-Shell application for Spring boot Starters sub dependecies
+Shell application for Spring Boot dependecies
