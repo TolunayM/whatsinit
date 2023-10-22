@@ -15,10 +15,10 @@ public class WhatsInside {
 
 
     private final CommandController commandController;
-    private void copyToClipboard(String arg){
+    private void copyToClipboard(String dependency){
 
         System.setProperty("java.awt.headless","false");
-        StringSelection stringSelection = new StringSelection(arg);
+        StringSelection stringSelection = new StringSelection(dependency);
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
         clipboard.setContents(stringSelection,null);
     }
@@ -54,7 +54,7 @@ public class WhatsInside {
 
     @Command(command = "devtools",description = "Dev Tools Dependencies")
     public String devDependencies(){
-        return commandController.getByContext(Contexts.dev_tools.name());
+        return commandController.getByContext(Contexts.devtools.name());
     }
 
     @Command(command = "message",description = "Messaging Dependencies")

@@ -5,7 +5,7 @@ public enum Contexts {
     security,
     data,
     template,
-    dev_tools,
+    devtools,
     nosql,
     messaging,
     io,
