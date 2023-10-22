@@ -14,16 +14,13 @@ import java.awt.datatransfer.StringSelection;
 public class WhatsInside {
 
 
-
     private final CommandController commandController;
     private void copyToClipboard(String arg){
 
         System.setProperty("java.awt.headless","false");
-        String clip = commandController.getByContext(arg);
-        StringSelection stringSelection = new StringSelection(clip);
+        StringSelection stringSelection = new StringSelection(arg);
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
         clipboard.setContents(stringSelection,null);
-
     }
 
     public WhatsInside(CommandController commandController){
@@ -129,8 +126,12 @@ public class WhatsInside {
 
     @Command(command = "copy",description = "Copy dependencies you want")
         public void exampleCopy(
-                @Option(arity = CommandRegistration.OptionArity.ZERO_OR_MORE) String arg){
-            copyToClipboard(arg);
-
+                @Option(arity = CommandRegistration.OptionArity.ZERO_OR_MORE) String[] arg) {
+        StringBuilder allOfThem = new StringBuilder();
+        for (String str : arg) {
+            String clip = commandController.getByContext(str);
+            allOfThem.append(clip);
+        }
+            copyToClipboard(String.valueOf(allOfThem));
         }
     }
