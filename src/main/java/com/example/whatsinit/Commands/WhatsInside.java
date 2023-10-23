@@ -2,6 +2,8 @@ package com.example.whatsinit.Commands;
 
 import com.example.whatsinit.CommandController;
 import com.example.whatsinit.Contexts;
+import com.example.whatsinit.DepenDController;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.shell.command.CommandRegistration;
 import org.springframework.shell.command.annotation.Command;
 import org.springframework.shell.command.annotation.Option;
@@ -15,6 +17,8 @@ public class WhatsInside {
 
 
     private final CommandController commandController;
+
+    private DepenDController depenDController;
     private void copyToClipboard(String dependency){
 
         System.setProperty("java.awt.headless","false");
@@ -23,9 +27,12 @@ public class WhatsInside {
         clipboard.setContents(stringSelection,null);
     }
 
-    public WhatsInside(CommandController commandController){
+    public WhatsInside(CommandController commandController,DepenDController depenDController){
         this.commandController = commandController;
+        this.depenDController = depenDController;
     }
+
+
 
     @Command(command = "web",description = "Web Dependencies")
     public String webDependencies(){
@@ -129,7 +136,7 @@ public class WhatsInside {
                 @Option(arity = CommandRegistration.OptionArity.ZERO_OR_MORE) String[] arg) {
         StringBuilder allOfThem = new StringBuilder();
         for (String str : arg) {
-            String clip = commandController.getByContext(str);
+            String clip = depenDController.getDependency(str);
             allOfThem.append(clip);
         }
             copyToClipboard(String.valueOf(allOfThem));
