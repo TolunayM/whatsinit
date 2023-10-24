@@ -15,10 +15,11 @@ import java.awt.datatransfer.StringSelection;
 @Command()
 public class WhatsInside {
 
+    //TODO Dependecy database i icinde hepsinin sonuna 1 satir ekle
 
     private final CommandController commandController;
 
-    private DepenDController depenDController;
+    private final DepenDController depenDController;
     private void copyToClipboard(String dependency){
 
         System.setProperty("java.awt.headless","false");

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class DepenDController {
 
-    private DepenDService depenDService;
+    private final DepenDService depenDService;
 
     public DepenDController(DepenDService depenDService){
         this.depenDService = depenDService;

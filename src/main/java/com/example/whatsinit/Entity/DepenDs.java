@@ -17,6 +17,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class DepenDs {
 
+    @Column(name = "id")
     @Id
     int id;
     @Column(name = "name")
