@@ -133,7 +133,7 @@ public class WhatsInside {
 
     @Command(command = "copy",description = "Copy dependencies you want")
         public void exampleCopy(
-                @Option(arity = CommandRegistration.OptionArity.ZERO_OR_MORE) String[] arg) {
+                @Option(arity = CommandRegistration.OptionArity.ONE_OR_MORE) String[] arg) {
         StringBuilder allOfThem = new StringBuilder();
         for (String str : arg) {
             String clip = depenDController.getDependency(str);
