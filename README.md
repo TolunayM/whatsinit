@@ -1,2 +1,9 @@
 # whatsinit
-Shell application for Spring Boot dependecies
+
+## How To Install
+
+## How To Use
+
+## Built With
+
+## License
